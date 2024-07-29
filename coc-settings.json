@@ -1,0 +1,20 @@
+{
+  "clangd.arguments": ["--header-insertion=never"],
+  "inlayHint.display": false,
+  "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "cc", "c++", "cuda", "objc", "objcpp"],
+            "rootPatterns": [".ccls-root", ".ccls", ".git", ".hg", ".svn", ".root", "compile_commands.json", "Makefile", "CMakeLists.txt"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": ".ccls-cache"
+                },
+                "client": {
+                    "snippetSupport": true
+                }
+            }
+        }
+    }
+}
+
