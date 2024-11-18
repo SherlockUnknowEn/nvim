@@ -26,16 +26,11 @@ vim.api.nvim_set_keymap('n', 'J', ':lua echoDisabled("J")<CR>', { noremap = true
 vim.api.nvim_set_keymap('n', 'U', ':lua echoDisabled("U")<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'P', ':lua echoDisabled("P")<CR>', { noremap = true, silent = true })
 
-neoscroll = require('neoscroll')
+-- 禁用插入模式下的 Alt + j 和 Alt + k
+vim.api.nvim_del_keymap('i', '<A-j>')
+vim.api.nvim_del_keymap('i', '<A-k>')
 
-local keymap = {
-  ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 250 }) end;
-  ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 250 }) end;
-  ["<C-b>"] = function() neoscroll.ctrl_b({ duration = 250 }) end;
-  ["<C-f>"] = function() neoscroll.ctrl_f({ duration = 250 }) end;
-}
-local modes = { 'n', 'v', 'x' }
-for key, func in pairs(keymap) do
-  vim.keymap.set(modes, key, func)
-end
+-- 如果你希望保留 Alt + j 和 Alt + k 在普通模式中的行为
+vim.api.nvim_del_keymap('n', '<A-j>')
+vim.api.nvim_del_keymap('n', '<A-k>')
 
